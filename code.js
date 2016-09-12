@@ -32,6 +32,20 @@
 
   fabric.Image.fromURL('128.jpg', function (oImg) {
     oImg.scale(0.75).setOpacity(0.5).setFlipY(true);
+    oImg.set({left: 30, top: 10});
+    // add filter
+    oImg.filters.push(new fabric.Image.filters.Grayscale());
+    // apply filters and re-render canvas when done
+    oImg.applyFilters(canvas.renderAll.bind(canvas));
     canvas.add(oImg);
   });
+
+  var text = new fabric.Text('hello world', {
+    left: 100,
+    top: 100,
+    fontFamily: 'PrecisionSans_W_Rg',
+    fontSize: 30
+  });
+
+  canvas.add(text);
 }());
