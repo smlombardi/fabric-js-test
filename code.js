@@ -5,6 +5,9 @@ var canvas = new fabric.Canvas('c', {
   selectionLineWidth: 2
 });
 
+fabric.Object.prototype.transparentCorners = false;
+
+
 // create a rectangle object
 var rect = new fabric.Rect({
   left: 100,
@@ -12,7 +15,6 @@ var rect = new fabric.Rect({
   fill: 'red',
   width: 20,
   height: 20,
-  angle: 45
 });
 
 // "add" rectangle onto canvas
@@ -28,7 +30,7 @@ var triangle = new fabric.Triangle({
 canvas.add(circle, triangle);
 
 fabric.Image.fromURL('128.jpg', function (oImg) {
-  oImg.scale(0.75).setOpacity(0.5).setFlipY(true);
+  oImg.scale(0.75).setOpacity(1.0).setFlipY(true);
   oImg.set({left: 30, top: 10});
   // add filter
   oImg.filters.push(new fabric.Image.filters.Grayscale());
@@ -55,21 +57,89 @@ function rasterize () {
 }
 
 // add a text object
-function addText() {
+function addText () {
   var text = 'Hello World';
 
   var textSample = new fabric.Text(text, {
-  left:0,
-  top: 0,
-  fontFamily: 'PrecisionSans_W_Rg',
-  fill: '#000',
-  scaleX: 0.5,
-  scaleY: 0.5,
-  fontWeight: 'normal',
-  originX: 'left',
-  hasRotatingPoint: true,
-  centerTransform: true
-});
+    left: 0,
+    top: 0,
+    fontFamily: 'PrecisionSans_W_Rg',
+    fill: '#000',
+    scaleX: 0.5,
+    scaleY: 0.5,
+    fontWeight: 'normal',
+    originX: 'left',
+    hasRotatingPoint: true,
+    centerTransform: true
+  });
 
-canvas.add(textSample);
+  canvas.add(textSample);
 }
+
+var $ = function(id){return document.getElementById(id)};
+
+var angleControl = $('angle-control');
+  angleControl.onchange = function() {
+    rect.setAngle(parseInt(this.value, 10)).setCoords();
+    canvas.renderAll();
+  };
+
+  var scaleControl = $('scale-control');
+  scaleControl.onchange = function() {
+    rect.scale(parseFloat(this.value)).setCoords();
+    canvas.renderAll();
+  };
+
+  var topControl = $('top-control');
+  topControl.onchange = function() {
+    rect.setTop(parseInt(this.value, 10)).setCoords();
+    canvas.renderAll();
+  };
+
+  var leftControl = $('left-control');
+  leftControl.onchange = function() {
+    rect.setLeft(parseInt(this.value, 10)).setCoords();
+    canvas.renderAll();
+  };
+
+  function updateControls() {
+    scaleControl.value = rect.getScaleX();
+    angleControl.value = rect.getAngle();
+    leftControl.value = rect.getLeft();
+    topControl.value = rect.getTop();
+  }
+  canvas.on({
+    'object:moving': updateControls,
+    'object:scaling': updateControls,
+    'object:resizing': updateControls,
+    'object:rotating': updateControls
+  });
+
+
+  function sendBackwards () {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.sendBackwards(activeObject);
+    }
+  };
+
+  function sendToBack () {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.sendToBack(activeObject);
+    }
+  };
+
+  function bringForward () {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.bringForward(activeObject);
+    }
+  };
+
+  function bringToFront () {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.bringToFront(activeObject);
+    }
+  };
