@@ -8,7 +8,7 @@ var canvas = new fabric.Canvas('c', {
 // create a rectangle object
 var rect = new fabric.Rect({
   left: 100,
-  top: 100,
+  top: 10,
   fill: 'red',
   width: 20,
   height: 20,
@@ -19,10 +19,10 @@ var rect = new fabric.Rect({
 canvas.add(rect);
 
 var circle = new fabric.Circle({
-  radius: 20, fill: 'green', left: 100, top: 100
+  radius: 20, fill: 'green', left: 150, top: 20
 });
 var triangle = new fabric.Triangle({
-  width: 20, height: 30, fill: 'blue', left: 50, top: 50
+  width: 20, height: 30, fill: 'blue', left: 50, top: 20
 });
 
 canvas.add(circle, triangle);
@@ -45,10 +45,31 @@ var text = new fabric.Text('hello world', {
 });
 canvas.add(text);
 
+// export as png
 function rasterize () {
   if (!fabric.Canvas.supports('toDataURL')) {
     alert("This browser doesn't provide means to serialize canvas to an image");
   } else {
     window.open(canvas.toDataURL('png'));
   }
+}
+
+// add a text object
+function addText() {
+  var text = 'Hello World';
+
+  var textSample = new fabric.Text(text, {
+  left:0,
+  top: 0,
+  fontFamily: 'PrecisionSans_W_Rg',
+  fill: '#000',
+  scaleX: 0.5,
+  scaleY: 0.5,
+  fontWeight: 'normal',
+  originX: 'left',
+  hasRotatingPoint: true,
+  centerTransform: true
+});
+
+canvas.add(textSample);
 }
