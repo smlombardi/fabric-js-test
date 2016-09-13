@@ -115,14 +115,19 @@ function bringToFront () {
 //   canvas.renderAll()
 // }
 
+
+// to fake a canvas border
 var canvasBox = new fabric.Rect({
   left: 0,
   top: 0,
   stroke: '#000',
   strokeWidth: 2,
   fill: 'rgba(255, 255, 255, 0)',
-  width: 200,
-  height: 200
+  width: 798,
+  height: 198,
+  selectable: false,
+  hoverCursor: 'default'
 });
 
 canvas.add(canvasBox);
+canvas.sendToBack(canvasBox);
