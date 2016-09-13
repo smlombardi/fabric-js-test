@@ -18,7 +18,6 @@ function applyFilterValue (index, prop, value) {
 fabric.Object.prototype.padding = 5;
 fabric.Object.prototype.transparentCorners = false;
 
-var canvas = this.__canvas = new fabric.Canvas('c'),
   f = fabric.Image.filters;
 
 canvas.on({
