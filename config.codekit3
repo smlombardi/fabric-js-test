@@ -20,9 +20,9 @@
 	"\/code.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/min\/code-min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},
@@ -481,9 +481,9 @@
 	"\/imagefilters.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/min\/imagefilters-min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},
@@ -492,15 +492,6 @@
 		"oA": 2,
 		"oAP": "\/index.html",
 		"oF": 0
-		},
-	"\/min\/code-min.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/min\/min\/code-min-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
 		},
 	"\/sass\/app.scss": {
 		"aP": 1,
@@ -518,9 +509,9 @@
 	"\/utils.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/min\/utils-min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		}

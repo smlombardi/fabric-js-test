@@ -1,5 +1,4 @@
-
-// var $ = function (id) {return document.getElementById(id);};
+// var $ = function (id) {return document.getElementById(id);}
 
 function applyFilter (index, filter) {
   var obj = canvas.getActiveObject();
@@ -18,7 +17,7 @@ function applyFilterValue (index, prop, value) {
 fabric.Object.prototype.padding = 5;
 fabric.Object.prototype.transparentCorners = false;
 
-  f = fabric.Image.filters;
+f = fabric.Image.filters;
 
 canvas.on({
   'object:selected': function () {
