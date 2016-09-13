@@ -151,3 +151,5 @@ $('blend-mode').onchange = function () {
 $('blend-color').onchange = function () {
   applyFilterValue(14, 'color', this.value);
 };
+
+
