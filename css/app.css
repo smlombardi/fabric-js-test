@@ -3,4 +3,8 @@
 .controls > div { margin-right: 20px; }
 
 .controls > div > p { padding: 5px; border: 1px solid #c0c0c0; border-radius: 3px; }
+
+.action-buttons { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+
+.action-buttons button { display: block; }
 /*# sourceMappingURL=app.css.map */

@@ -9,14 +9,13 @@ var canvas = new fabric.Canvas('c', {
 
 fabric.Object.prototype.transparentCorners = false;
 
-
 // create a rectangle object
 var rect = new fabric.Rect({
   left: 100,
   top: 10,
   fill: 'red',
   width: 20,
-  height: 20,
+  height: 20
 });
 
 // "add" rectangle onto canvas
@@ -32,12 +31,12 @@ var triangle = new fabric.Triangle({
 canvas.add(circle, triangle);
 
 fabric.Image.fromURL('128.jpg', function (oImg) {
-  oImg.scale(0.75).setOpacity(1.0).setFlipY(true);
-  oImg.set({left: 30, top: 10});
+  // oImg.scale(0.75).setOpacity(1.0).setFlipY(true);
+  oImg.set({left: 300, top: 20});
   // add filter
-  oImg.filters.push(new fabric.Image.filters.Grayscale());
+  // oImg.filters.push(new fabric.Image.filters.Grayscale())
   // apply filters and re-render canvas when done
-  oImg.applyFilters(canvas.renderAll.bind(canvas));
+  // oImg.applyFilters(canvas.renderAll.bind(canvas))
   canvas.add(oImg);
 });
 
@@ -78,32 +77,32 @@ function addText () {
   canvas.add(textSample);
 }
 
-var $ = function(id){return document.getElementById(id)};
+var $ = function (id) {return document.getElementById(id);};
 
-  function sendBackwards () {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject) {
-      canvas.sendBackwards(activeObject);
-    }
-  };
+function sendBackwards () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.sendBackwards(activeObject);
+  }
+}
 
-  function sendToBack () {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject) {
-      canvas.sendToBack(activeObject);
-    }
-  };
+function sendToBack () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.sendToBack(activeObject);
+  }
+}
 
-  function bringForward () {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject) {
-      canvas.bringForward(activeObject);
-    }
-  };
+function bringForward () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.bringForward(activeObject);
+  }
+}
 
-  function bringToFront () {
-    var activeObject = canvas.getActiveObject();
-    if (activeObject) {
-      canvas.bringToFront(activeObject);
-    }
-  };
+function bringToFront () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.bringToFront(activeObject);
+  }
+}
