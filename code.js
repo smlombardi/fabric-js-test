@@ -31,7 +31,7 @@ var triangle = new fabric.Triangle({
 canvas.add(circle, triangle);
 
 fabric.Image.fromURL('128.jpg', function (oImg) {
-  // oImg.scale(0.75).setOpacity(1.0).setFlipY(true);
+  // oImg.scale(0.75).setOpacity(1.0).setFlipY(true)
   oImg.set({left: 300, top: 20});
   // add filter
   // oImg.filters.push(new fabric.Image.filters.Grayscale())
@@ -108,9 +108,21 @@ function bringToFront () {
 }
 //
 // function getCanvasBgColor () {
-//   return canvas.backgroundColor;
-// };
+//   return canvas.backgroundColor
+// }
 // function setCanvasBgColor (value) {
-//   canvas.backgroundColor = value;
-//   canvas.renderAll();
-// };
+//   canvas.backgroundColor = value
+//   canvas.renderAll()
+// }
+
+var canvasBox = new fabric.Rect({
+  left: 0,
+  top: 0,
+  stroke: '#000',
+  strokeWidth: 2,
+  fill: 'rgba(255, 255, 255, 0)',
+  width: 200,
+  height: 200
+});
+
+canvas.add(canvasBox);

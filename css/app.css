@@ -1,12 +1,13 @@
-.controls { display: -webkit-box; display: -ms-flexbox; display: flex; }
+.controls { display: flex; }
 
 .controls > div { margin-right: 20px; }
 
 .controls > div > p { padding: 5px; border: 1px solid #c0c0c0; border-radius: 3px; }
 
-.action-buttons { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.action-buttons { justify-content: space-between; }
 
 .action-buttons button { display: block; }
 
 .canvas-holder { background-color: #ebebeb; padding: 30px; }
+
 /*# sourceMappingURL=app.css.map */
