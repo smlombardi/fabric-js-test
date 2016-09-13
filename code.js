@@ -1,6 +1,6 @@
 // create a wrapper around native canvas element (with id="c")
 var canvas = new fabric.Canvas('c', {
-  backgroundColor: 'rgb(242, 226, 129)',
+  backgroundColor: '#ffffff',
   selectionColor: 'blue',
   selectionLineWidth: 2,
   width: 800,
@@ -106,3 +106,11 @@ function bringToFront () {
     canvas.bringToFront(activeObject);
   }
 }
+//
+// function getCanvasBgColor () {
+//   return canvas.backgroundColor;
+// };
+// function setCanvasBgColor (value) {
+//   canvas.backgroundColor = value;
+//   canvas.renderAll();
+// };

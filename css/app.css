@@ -7,4 +7,6 @@
 .action-buttons { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
 .action-buttons button { display: block; }
+
+.canvas-holder { background-color: #ebebeb; padding: 30px; }
 /*# sourceMappingURL=app.css.map */
