@@ -1,0 +1,17 @@
+.controls {
+  display: flex;
+  > div {
+    margin-right: 20px;
+    > p {
+      padding: 5px;
+      border: 1px solid #c0c0c0;
+      border-radius: 3px;
+    }
+  }
+}
+.action-buttons {
+  justify-content: space-between;
+  button {
+    display: block;
+  }
+}

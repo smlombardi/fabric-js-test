@@ -2,8 +2,12 @@
 var canvas = new fabric.Canvas('c', {
   backgroundColor: 'rgb(242, 226, 129)',
   selectionColor: 'blue',
-  selectionLineWidth: 2
+  selectionLineWidth: 2,
+  width: 800,
+  height: 200
 });
+
+fabric.Object.prototype.transparentCorners = false;
 
 // create a rectangle object
 var rect = new fabric.Rect({
@@ -11,8 +15,7 @@ var rect = new fabric.Rect({
   top: 10,
   fill: 'red',
   width: 20,
-  height: 20,
-  angle: 45
+  height: 20
 });
 
 // "add" rectangle onto canvas
@@ -28,12 +31,12 @@ var triangle = new fabric.Triangle({
 canvas.add(circle, triangle);
 
 fabric.Image.fromURL('128.jpg', function (oImg) {
-  oImg.scale(0.75).setOpacity(0.5).setFlipY(true);
-  oImg.set({left: 30, top: 10});
+  // oImg.scale(0.75).setOpacity(1.0).setFlipY(true);
+  oImg.set({left: 300, top: 20});
   // add filter
-  oImg.filters.push(new fabric.Image.filters.Grayscale());
+  // oImg.filters.push(new fabric.Image.filters.Grayscale())
   // apply filters and re-render canvas when done
-  oImg.applyFilters(canvas.renderAll.bind(canvas));
+  // oImg.applyFilters(canvas.renderAll.bind(canvas))
   canvas.add(oImg);
 });
 
@@ -55,21 +58,51 @@ function rasterize () {
 }
 
 // add a text object
-function addText() {
+function addText () {
   var text = 'Hello World';
 
   var textSample = new fabric.Text(text, {
-  left:0,
-  top: 0,
-  fontFamily: 'PrecisionSans_W_Rg',
-  fill: '#000',
-  scaleX: 0.5,
-  scaleY: 0.5,
-  fontWeight: 'normal',
-  originX: 'left',
-  hasRotatingPoint: true,
-  centerTransform: true
-});
+    left: 0,
+    top: 0,
+    fontFamily: 'PrecisionSans_W_Rg',
+    fill: '#000',
+    scaleX: 0.5,
+    scaleY: 0.5,
+    fontWeight: 'normal',
+    originX: 'left',
+    hasRotatingPoint: true,
+    centerTransform: true
+  });
 
-canvas.add(textSample);
+  canvas.add(textSample);
+}
+
+var $ = function (id) {return document.getElementById(id);};
+
+function sendBackwards () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.sendBackwards(activeObject);
+  }
+}
+
+function sendToBack () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.sendToBack(activeObject);
+  }
+}
+
+function bringForward () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.bringForward(activeObject);
+  }
+}
+
+function bringToFront () {
+  var activeObject = canvas.getActiveObject();
+  if (activeObject) {
+    canvas.bringToFront(activeObject);
+  }
 }
